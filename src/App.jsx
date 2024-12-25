@@ -44,7 +44,6 @@ function App() {
 		const { id } = active;
 		const { id: overId } = over;
 
-		// Find the containers
 		const activeContainer = findContainer(id);
 		const overContainer = findContainer(overId);
 
@@ -56,13 +55,11 @@ function App() {
 			const activeItems = prev[activeContainer];
 			const overItems = prev[overContainer];
 
-			// Find the indexes for the items
 			const activeIndex = activeItems.findIndex((item) => item.id === id);
 			const overIndex = overItems.findIndex((item) => item.id === overId);
 
 			let newIndex;
 			if (overId in prev) {
-				// We're at the root droppable of a container
 				newIndex = overItems.length + 1;
 			} else {
 				const isBelowLastItem =
